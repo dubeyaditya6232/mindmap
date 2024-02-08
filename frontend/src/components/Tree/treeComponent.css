@@ -4,11 +4,19 @@
 }
 
 .node__branch>circle {
-    fill: yellow;
+    fill: orange;
+    font-weight: 100;
 }
 
 .node__leaf>circle {
-    fill: green;
+    fill: rgba(194, 140, 41, 0.682);
     /* Let's also make the radius of leaf nodes larger */
-    font: 1em sans-serif;
+    font-weight: 100;
+}
+
+.svg {
+    font-size: small;
+    font-style: normal;
+    font-weight: lighter;
+    white-space: unset;
 }

@@ -20,28 +20,25 @@ const TreeComponent = ({ treeData }) => {
 
     const handleNodeClick = (datum) => {
 
-        console.log(prev, datum.__rd3t.collapsed)
-        console.log(ox, oy)
-        if (prev !== datum.__rd3t.collapsed) {
-            setPrev(datum.__rd3t.collapsed)
-            if (datum.__rd3t.collapsed) {
-                if (orientation === 'vertical') {
-                    setOy(oy + 50)
-                }
-                else {
-                    setOx(ox + 50)
+        // if (prev !== datum.__rd3t.collapsed) {
+        //     setPrev(datum.__rd3t.collapsed)
+        //     if (datum.__rd3t.collapsed) {
+        //         if (orientation === 'vertical') {
+        //             setOy(oy + 50)
+        //         }
+        //         else {
+        //             setOx(ox + 50)
 
-                }
-            } else {
-                if (orientation === 'vertical') {
-                    setOy(oy - 50)
-                }
-                else {
-                    setOx(ox - 50)
-                }
-            }
-        }
-        console.log(ox, oy)
+        //         }
+        //     } else {
+        //         if (orientation === 'vertical') {
+        //             setOy(oy - 50)
+        //         }
+        //         else {
+        //             setOx(ox - 50)
+        //         }
+        //     }
+        // }
     };
 
     const textLayout = {
@@ -75,14 +72,18 @@ const TreeComponent = ({ treeData }) => {
         const { nodeDatum, toggleNode } = customProps;
         // const isRoot = nodeDatum.attributes?.id === tree.attributes?.id;
         return (
-            <><circle r={20} onClick={() => { onNodeClick(nodeDatum); toggleNode() }}></circle>
+            <><circle r={15} onClick={() => { onNodeClick(nodeDatum); toggleNode() }}></circle>
                 <g className="rd3t-label">
                     <text
                         x="-1"
                         dy={orientation === 'vertical' ? "-2em" : "2em"}
                     // onClick={onNodeClick}
                     >
-                        {nodeDatum.name}
+                        {nodeDatum.name.split(' ').map((word, index) => (
+                            <tspan x="1em" dy={index === 0 ? "1.5em" : '1.2em'} key={index}>
+                                {word}
+                            </tspan>
+                        ))}
                         {/* {nodeDatum.attributes &&
                             Object.entries(nodeDatum.attributes).map(([labelKey, labelValue], i) => (
                                 <tspan key={`${labelKey}-${i}`}>
@@ -116,8 +117,9 @@ const TreeComponent = ({ treeData }) => {
     }, []);
 
     useEffect(() => {
-        console.log("changed")
+
     }, [ox, oy])
+
 
     return (
         <> <Stack direction="row" spacing="md" sx={{}}>
@@ -125,10 +127,10 @@ const TreeComponent = ({ treeData }) => {
                 <Tree
                     data={treeData}
                     orientation={orientation}
-                    // dimensions={{
-                    //     height: 50,
-                    //     width: 50
-                    // }}
+                    dimensions={{
+                        height: window.innerHeight,
+                        width: window.innerWidth
+                    }}
                     centeringTransitionDuration={500}
                     translate={{
                         x: window.innerWidth / 2 - ((orientation === 'vertical') ? 0 : ox),
@@ -153,6 +155,7 @@ const TreeComponent = ({ treeData }) => {
                     rootNodeClassName="node__root"
                     branchNodeClassName="node__branch"
                     leafNodeClassName="node__leaf"
+                    svgClassName="svg"
                 />
             </Box>
         </Stack>
