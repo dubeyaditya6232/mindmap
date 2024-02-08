@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import TreeComponent from './Tree/TreeComponent'
 import SearchBox from './searchBox/SearchBox'
 import Loading from './Loading'
+import NotFound from './NotFound'
 
 const Home = () => {
 
@@ -25,7 +26,7 @@ const Home = () => {
                     setTreeData={setTreeData}
                 />
             </Box>
-            {searchValue ? !loading ? <TreeComponent treeData={treeData} /> : <Loading /> : <></>}
+            {searchValue ? !loading ? !treeData ? <NotFound /> : <TreeComponent treeData={treeData} /> : <Loading /> : <></>}
         </>
     )
 }

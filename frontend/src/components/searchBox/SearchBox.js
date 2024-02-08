@@ -53,12 +53,15 @@ const SearchBox = ({ setSearchValue, setLoading, setTreeData }) => {
     const fetchData = async (word) => {
         setLoading(true)
         try {
-            console.log(`${process.env.REACT_APP_server_url}data`)
             const response = await axios.get(`${process.env.REACT_APP_server_url}data/${word}`)
             if (response) {
                 setTreeData(response.data)
             }
         } catch (e) {
+            if (e.response?.status === 404) {
+                setTreeData(null)
+            }
+
             console.log(e)
         }
         setLoading(false)
