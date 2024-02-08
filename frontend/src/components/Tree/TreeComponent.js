@@ -1,7 +1,6 @@
 // import NodeModal from "../components/NodeModal";
 import { Box, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
-import axios from 'axios'
 // import { CustomNodeElementProps, RawNodeDatum, TreeNodeDatum } from "react-d3-tree/lib/types/common";
 // import { v4 } from "uuid";
 
@@ -9,17 +8,40 @@ import Tree from "react-d3-tree"
 import './treeComponent.css'
 import data from '../../treeData.json'
 
-console.log(data)
 
 
-const TreeComponent = () => {
+const TreeComponent = ({ treeData }) => {
+    // console.log(data)
 
-    const [loading, setLoading] = useState(true)
-
-    const [treeData, setTreeData] = useState(null)
+    const [orientation, setOrientation] = useState('horizontal');
+    const [ox, setOx] = useState(100)
+    const [oy, setOy] = useState(50)
+    const [prev, setPrev] = useState(null)
 
     const handleNodeClick = (datum) => {
 
+        console.log(prev, datum.__rd3t.collapsed)
+        console.log(ox, oy)
+        if (prev !== datum.__rd3t.collapsed) {
+            setPrev(datum.__rd3t.collapsed)
+            if (datum.__rd3t.collapsed) {
+                if (orientation === 'vertical') {
+                    setOy(oy + 50)
+                }
+                else {
+                    setOx(ox + 50)
+
+                }
+            } else {
+                if (orientation === 'vertical') {
+                    setOy(oy - 50)
+                }
+                else {
+                    setOx(ox - 50)
+                }
+            }
+        }
+        console.log(ox, oy)
     };
 
     const textLayout = {
@@ -53,12 +75,12 @@ const TreeComponent = () => {
         const { nodeDatum, toggleNode } = customProps;
         // const isRoot = nodeDatum.attributes?.id === tree.attributes?.id;
         return (
-            <><circle r={20} onClick={toggleNode}></circle>
+            <><circle r={20} onClick={() => { onNodeClick(nodeDatum); toggleNode() }}></circle>
                 <g className="rd3t-label">
                     <text
                         x="-1"
                         dy={orientation === 'vertical' ? "-2em" : "2em"}
-                        onClick={onNodeClick}
+                    // onClick={onNodeClick}
                     >
                         {nodeDatum.name}
                         {/* {nodeDatum.attributes &&
@@ -72,26 +94,8 @@ const TreeComponent = () => {
         );
     };
 
-    const [orientation, setOrientation] = useState('horizontal');
-    const [ox, setOx] = useState(100)
-    const [oy, setOy] = useState(50)
 
-    const fetchData = async () => {
-        setLoading(true)
-        try {
-            console.log(`${process.env.REACT_APP_server_url}data`)
-            const response = await axios.get(`${process.env.REACT_APP_server_url}data`)
-            if (response) {
-                setTreeData(response.data)
-            }
-        } catch (e) {
-            console.log(e)
-        }
-        setLoading(false)
-    }
     useEffect(() => {
-
-        fetchData();
 
         const handleResize = () => {
             // Check the screen width and update the orientation
@@ -111,9 +115,13 @@ const TreeComponent = () => {
         };
     }, []);
 
+    useEffect(() => {
+        console.log("changed")
+    }, [ox, oy])
+
     return (
-        <>{loading ? <></> : <Stack direction="row" spacing="md" sx={{}}>
-            <Box sx={{ border: '2px solid black', width: '100%', height: '100vh' }}>
+        <> <Stack direction="row" spacing="md" sx={{}}>
+            <Box sx={{ width: '100%', height: '90vh' }}>
                 <Tree
                     data={treeData}
                     orientation={orientation}
@@ -142,15 +150,12 @@ const TreeComponent = () => {
                     renderCustomNodeElement={(nodeInfo) =>
                         renderRectSvgNode(nodeInfo, handleNodeClick)
                     }
+                    rootNodeClassName="node__root"
+                    branchNodeClassName="node__branch"
+                    leafNodeClassName="node__leaf"
                 />
-                {/* <NodeModal
-          onSubmit={(familyMemberName) => handleSubmit(familyMemberName)}
-          onClose={close}
-          isOpen={Boolean(node)}
-        /> */}
             </Box>
         </Stack>
-        }
         </>
     );
 }

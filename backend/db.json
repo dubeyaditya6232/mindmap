@@ -1,167 +1,322 @@
 {
-    "data": {
-        "name": "CEO",
-        "children": [
-            {
-                "name": "Manager",
-                "attributes": {
-                    "Department": "Production",
-                    "isFullTime": true,
-                    "weeklyHours": 80
-                },
-                "children": [
-                    {
-                        "name": "Foreman",
-                        "attributes": {
-                            "Department": "Fabrication"
-                        },
-                        "children": [
-                            {
-                                "name": "Workers"
-                            }
-                        ]
+    "data": [
+        {
+            "id": "ceo",
+            "name": "CEO",
+            "children": [
+                {
+                    "name": "Manager",
+                    "attributes": {
+                        "Department": "Production",
+                        "isFullTime": true,
+                        "weeklyHours": 80
                     },
-                    {
-                        "name": "Foreman",
-                        "attributes": {
-                            "Department": "Assembly"
+                    "children": [
+                        {
+                            "name": "Foreman",
+                            "attributes": {
+                                "Department": "Fabrication"
+                            },
+                            "children": [
+                                {
+                                    "name": "Workers"
+                                }
+                            ]
                         },
-                        "children": [
-                            {
-                                "name": "Workers"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Manager",
-                "attributes": {
-                    "Department": "Marketing",
-                    "isFullTime": true,
-                    "weeklyHours": 80
+                        {
+                            "name": "Foreman",
+                            "attributes": {
+                                "Department": "Assembly"
+                            },
+                            "children": [
+                                {
+                                    "name": "Workers"
+                                }
+                            ]
+                        }
+                    ]
                 },
-                "children": [
-                    {
-                        "name": "Sales Officer",
-                        "attributes": {
-                            "Department": "A"
-                        },
-                        "children": [
-                            {
-                                "name": "Salespeople"
-                            }
-                        ]
+                {
+                    "name": "Manager",
+                    "attributes": {
+                        "Department": "Marketing",
+                        "isFullTime": true,
+                        "weeklyHours": 80
                     },
-                    {
-                        "name": "Sales Officer",
-                        "attributes": {
-                            "Department": "B"
+                    "children": [
+                        {
+                            "name": "Sales Officer",
+                            "attributes": {
+                                "Department": "A"
+                            },
+                            "children": [
+                                {
+                                    "name": "Salespeople"
+                                }
+                            ]
                         },
-                        "children": [
-                            {
-                                "name": "Salespeople"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Manager",
-                "attributes": {
-                    "Department": "Marketing",
-                    "isFullTime": true,
-                    "weeklyHours": 80
+                        {
+                            "name": "Sales Officer",
+                            "attributes": {
+                                "Department": "B"
+                            },
+                            "children": [
+                                {
+                                    "name": "Salespeople"
+                                }
+                            ]
+                        }
+                    ]
                 },
-                "children": [
-                    {
-                        "name": "Sales Officer",
-                        "attributes": {
-                            "Department": "A"
-                        },
-                        "children": [
-                            {
-                                "name": "Salespeople"
-                            }
-                        ]
+                {
+                    "name": "Manager",
+                    "attributes": {
+                        "Department": "Marketing",
+                        "isFullTime": true,
+                        "weeklyHours": 80
                     },
-                    {
-                        "name": "Sales Officer",
-                        "attributes": {
-                            "Department": "B"
+                    "children": [
+                        {
+                            "name": "Sales Officer",
+                            "attributes": {
+                                "Department": "A"
+                            },
+                            "children": [
+                                {
+                                    "name": "Salespeople"
+                                }
+                            ]
                         },
-                        "children": [
-                            {
-                                "name": "Salespeople"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Manager",
-                "attributes": {
-                    "Department": "Marketing",
-                    "isFullTime": true,
-                    "weeklyHours": 80
+                        {
+                            "name": "Sales Officer",
+                            "attributes": {
+                                "Department": "B"
+                            },
+                            "children": [
+                                {
+                                    "name": "Salespeople"
+                                }
+                            ]
+                        }
+                    ]
                 },
-                "children": [
-                    {
-                        "name": "Sales Officer",
-                        "attributes": {
-                            "Department": "A"
-                        },
-                        "children": [
-                            {
-                                "name": "Salespeople"
-                            }
-                        ]
+                {
+                    "name": "Manager",
+                    "attributes": {
+                        "Department": "Marketing",
+                        "isFullTime": true,
+                        "weeklyHours": 80
                     },
-                    {
-                        "name": "Sales Officer",
-                        "attributes": {
-                            "Department": "B"
+                    "children": [
+                        {
+                            "name": "Sales Officer",
+                            "attributes": {
+                                "Department": "A"
+                            },
+                            "children": [
+                                {
+                                    "name": "Salespeople"
+                                }
+                            ]
                         },
-                        "children": [
-                            {
-                                "name": "Salespeople"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Manager",
-                "attributes": {
-                    "Department": "Marketing",
-                    "isFullTime": true,
-                    "weeklyHours": 80
+                        {
+                            "name": "Sales Officer",
+                            "attributes": {
+                                "Department": "B"
+                            },
+                            "children": [
+                                {
+                                    "name": "Salespeople"
+                                }
+                            ]
+                        }
+                    ]
                 },
-                "children": [
-                    {
-                        "name": "Sales Officer",
-                        "attributes": {
-                            "Department": "A"
-                        },
-                        "children": [
-                            {
-                                "name": "Salespeople"
-                            }
-                        ]
+                {
+                    "name": "Manager",
+                    "attributes": {
+                        "Department": "Marketing",
+                        "isFullTime": true,
+                        "weeklyHours": 80
                     },
-                    {
-                        "name": "Sales Officer",
-                        "attributes": {
-                            "Department": "B"
+                    "children": [
+                        {
+                            "name": "Sales Officer",
+                            "attributes": {
+                                "Department": "A"
+                            },
+                            "children": [
+                                {
+                                    "name": "Salespeople"
+                                }
+                            ]
                         },
-                        "children": [
-                            {
-                                "name": "Salespeople"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
+                        {
+                            "name": "Sales Officer",
+                            "attributes": {
+                                "Department": "B"
+                            },
+                            "children": [
+                                {
+                                    "name": "Salespeople"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sdlc",
+            "name": "sdlc",
+            "children": [
+                {
+                    "name": "Planning",
+                    "children": [
+                        {
+                            "name": "Requirement Analysis"
+                        },
+                        {
+                            "name": "Feasibility Study"
+                        },
+                        {
+                            "name": "Project Planning"
+                        }
+                    ]
+                },
+                {
+                    "name": "Development",
+                    "children": [
+                        {
+                            "name": "Coding"
+                        },
+                        {
+                            "name": "Code Review"
+                        },
+                        {
+                            "name": "Unit Testing"
+                        }
+                    ]
+                },
+                {
+                    "name": "Testing",
+                    "children": [
+                        {
+                            "name": "System Testing"
+                        },
+                        {
+                            "name": "Integration Testing"
+                        },
+                        {
+                            "name": "User Acceptance Testing"
+                        }
+                    ]
+                },
+                {
+                    "name": "Deployment",
+                    "children": [
+                        {
+                            "name": "Deployment Planning"
+                        },
+                        {
+                            "name": "Release Management"
+                        },
+                        {
+                            "name": "User Training"
+                        }
+                    ]
+                },
+                {
+                    "name": "Maintenance",
+                    "children": [
+                        {
+                            "name": "Bug Fixing"
+                        },
+                        {
+                            "name": "Enhancements"
+                        },
+                        {
+                            "name": "Documentation Updates"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "cloud",
+            "name": "cloud",
+            "children": [
+                {
+                    "name": "Cloud Computing Models",
+                    "children": [
+                        {
+                            "name": "Infrastructure as a Service (IaaS)"
+                        },
+                        {
+                            "name": "Platform as a Service (PaaS)"
+                        },
+                        {
+                            "name": "Software as a Service (SaaS)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Cloud Service Models",
+                    "children": [
+                        {
+                            "name": "Public Cloud"
+                        },
+                        {
+                            "name": "Private Cloud"
+                        },
+                        {
+                            "name": "Hybrid Cloud"
+                        }
+                    ]
+                },
+                {
+                    "name": "Cloud Deployment Models",
+                    "children": [
+                        {
+                            "name": "Amazon Web Services (AWS)"
+                        },
+                        {
+                            "name": "Microsoft Azure"
+                        },
+                        {
+                            "name": "Google Cloud Platform (GCP)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Cloud Security",
+                    "children": [
+                        {
+                            "name": "Identity and Access Management (IAM)"
+                        },
+                        {
+                            "name": "Data Encryption"
+                        },
+                        {
+                            "name": "Security Groups"
+                        }
+                    ]
+                },
+                {
+                    "name": "Cloud Services",
+                    "children": [
+                        {
+                            "name": "Storage Services"
+                        },
+                        {
+                            "name": "Compute Services"
+                        },
+                        {
+                            "name": "Database Services"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
