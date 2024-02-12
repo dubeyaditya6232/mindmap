@@ -1,22 +1,24 @@
-.node__root>circle {
+.node__root>g>rect {
     fill: red;
-    font-weight: lighter;
+
 }
 
-.node__branch>circle {
+.node__branch>g>rect {
     fill: orange;
-    font-weight: 100;
+    stroke: black;
+    stroke-width: 2;
 }
 
-.node__leaf>circle {
+.node__leaf>g>rect {
     fill: rgba(194, 140, 41, 0.682);
-    /* Let's also make the radius of leaf nodes larger */
-    font-weight: 100;
+    /* stroke-width: 2; */
 }
 
-.svg {
-    font-size: small;
+
+.rd3t-label>text {
     font-style: normal;
+    font-size: small;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
     font-weight: lighter;
-    white-space: unset;
+    letter-spacing: 1px
 }

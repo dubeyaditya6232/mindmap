@@ -70,10 +70,11 @@ const TreeComponent = ({ treeData }) => {
     };
     const renderRectSvgNode = (customProps, onNodeClick) => {
         const { nodeDatum, toggleNode } = customProps;
-        // const isRoot = nodeDatum.attributes?.id === tree.attributes?.id;
+        // console.log(nodeDatum)
         return (
-            <><circle r={15} onClick={() => { onNodeClick(nodeDatum); toggleNode() }}></circle>
+            <>
                 <g className="rd3t-label">
+                    <rect width={30} height={30} x={-18} onClick={() => { onNodeClick(nodeDatum); toggleNode() }} />
                     <text
                         x="-1"
                         dy={orientation === 'vertical' ? "-2em" : "2em"}
@@ -91,7 +92,8 @@ const TreeComponent = ({ treeData }) => {
                                 </tspan>
                             ))} */}
                     </text>
-                </g></>
+                </g>
+            </>
         );
     };
 
@@ -129,7 +131,7 @@ const TreeComponent = ({ treeData }) => {
                     orientation={orientation}
                     dimensions={{
                         height: window.innerHeight,
-                        width: window.innerWidth
+                        width: window.innerWidth + 10
                     }}
                     centeringTransitionDuration={500}
                     translate={{
@@ -155,7 +157,6 @@ const TreeComponent = ({ treeData }) => {
                     rootNodeClassName="node__root"
                     branchNodeClassName="node__branch"
                     leafNodeClassName="node__leaf"
-                    svgClassName="svg"
                 />
             </Box>
         </Stack>

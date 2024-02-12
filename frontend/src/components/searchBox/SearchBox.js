@@ -48,7 +48,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const SearchBox = ({ setSearchValue, setLoading, setTreeData }) => {
 
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("cloud")
 
     const fetchData = async (word) => {
         setLoading(true)
@@ -74,7 +74,7 @@ const SearchBox = ({ setSearchValue, setLoading, setTreeData }) => {
     const handleSearchSubmit = async (e) => {
         setSearchValue(search)
         console.log(search)
-        fetchData(search);
+        fetchData(search.toLowerCase());
     }
 
     return (
