@@ -4,6 +4,7 @@ import './App.css';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import { useState } from 'react';
+import MindMap from './components/Elk';
 
 function App() {
 
@@ -12,30 +13,31 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   return (
-    <BrowserRouter>
-      <Layout
-        setSearchValue={setSearchValue}
-        setTreeData={setTreeData}
-        setLoading={setLoading}
-        searchValue={searchValue}
-      >
-        <Routes>
-          <Route path='/'>
-            <Route index element={<Navigate to='/dashboard' replace />} />
-            <Route path='dashboard' element={<Home
-              treeData={treeData}
-              loading={loading}
-              searchValue={searchValue}
-            />} />
-            <Route path=':word' element={<Home
-              treeData={treeData}
-              loading={loading}
-              searchValue={searchValue}
-            />} />
-          </Route>
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <MindMap/>
+    // <BrowserRouter>
+    //   <Layout
+    //     setSearchValue={setSearchValue}
+    //     setTreeData={setTreeData}
+    //     setLoading={setLoading}
+    //     searchValue={searchValue}
+    //   >
+    //     <Routes>
+    //       <Route path='/'>
+    //         <Route index element={<Navigate to='/dashboard' replace />} />
+    //         <Route path='dashboard' element={<Home
+    //           treeData={treeData}
+    //           loading={loading}
+    //           searchValue={searchValue}
+    //         />} />
+    //         <Route path=':word' element={<Home
+    //           treeData={treeData}
+    //           loading={loading}
+    //           searchValue={searchValue}
+    //         />} />
+    //       </Route>
+    //     </Routes>
+    //   </Layout>
+    // </BrowserRouter>
   );
 }
 
