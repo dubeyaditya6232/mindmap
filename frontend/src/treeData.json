@@ -1,163 +1,149 @@
 {
-    "name": "CEO",
+    "name": "Cloud Computing",
+    "attributes": {
+        "description": "A model for enabling ubiquitous, convenient, on-demand network access to computing resources.",
+        "link": "https://en.wikipedia.org/wiki/Cloud_computing"
+    },
     "children": [
         {
-            "name": "Manager",
+            "name": "Service Models",
             "attributes": {
-                "Department": "Production",
-                "isFullTime": true,
-                "weeklyHours": 80
+                "description": "Different types of cloud services offered to users.",
+                "link": "https://en.wikipedia.org/wiki/Cloud_computing#Service_models"
             },
             "children": [
                 {
-                    "name": "Foreman",
+                    "name": "IaaS",
                     "attributes": {
-                        "Department": "Fabrication"
+                        "description": "Infrastructure as a Service - provides virtualized computing resources over the internet.",
+                        "link": "https://en.wikipedia.org/wiki/Infrastructure_as_a_service"
                     },
                     "children": [
                         {
-                            "name": "Workers"
+                            "name": "Examples",
+                            "attributes": {
+                                "description": "Commonly used IaaS providers.",
+                                "link": "https://aws.amazon.com/ec2/"
+                            },
+                            "children": [
+                                {
+                                    "name": "AWS EC2",
+                                    "attributes": {
+                                        "description": "Elastic Compute Cloud - virtual server instances in AWS.",
+                                        "link": "https://aws.amazon.com/ec2/"
+                                    }
+                                },
+                                {
+                                    "name": "Google Compute Engine",
+                                    "attributes": {
+                                        "description": "Google’s IaaS offering for running virtual machines.",
+                                        "link": "https://cloud.google.com/compute"
+                                    }
+                                }
+                            ]
                         }
                     ]
                 },
                 {
-                    "name": "Foreman",
+                    "name": "PaaS",
                     "attributes": {
-                        "Department": "Assembly"
+                        "description": "Platform as a Service - provides a platform for developing, running, and managing applications.",
+                        "link": "https://en.wikipedia.org/wiki/Platform_as_a_service"
                     },
                     "children": [
                         {
-                            "name": "Workers"
+                            "name": "Examples",
+                            "attributes": {
+                                "description": "Commonly used PaaS providers.",
+                                "link": "https://cloud.google.com/appengine/"
+                            },
+                            "children": [
+                                {
+                                    "name": "Google App Engine",
+                                    "attributes": {
+                                        "description": "A fully managed serverless platform for developing applications.",
+                                        "link": "https://cloud.google.com/appengine/"
+                                    }
+                                },
+                                {
+                                    "name": "AWS Elastic Beanstalk",
+                                    "attributes": {
+                                        "description": "An easy-to-use service for deploying and scaling web applications.",
+                                        "link": "https://aws.amazon.com/elasticbeanstalk/"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "SaaS",
+                    "attributes": {
+                        "description": "Software as a Service - provides software applications over the internet.",
+                        "link": "https://en.wikipedia.org/wiki/Software_as_a_service"
+                    },
+                    "children": [
+                        {
+                            "name": "Examples",
+                            "attributes": {
+                                "description": "Commonly used SaaS applications.",
+                                "link": "https://www.salesforce.com/"
+                            },
+                            "children": [
+                                {
+                                    "name": "Google Docs",
+                                    "attributes": {
+                                        "description": "A web-based word processor included as part of Google Drive.",
+                                        "link": "https://docs.google.com/"
+                                    }
+                                },
+                                {
+                                    "name": "Salesforce",
+                                    "attributes": {
+                                        "description": "A cloud-based customer relationship management (CRM) platform.",
+                                        "link": "https://www.salesforce.com/"
+                                    }
+                                }
+                            ]
                         }
                     ]
                 }
             ]
         },
         {
-            "name": "Manager",
+            "name": "Deployment Models",
             "attributes": {
-                "Department": "Marketing",
-                "isFullTime": true,
-                "weeklyHours": 80
+                "description": "Ways in which cloud services can be deployed.",
+                "link": "https://en.wikipedia.org/wiki/Cloud_computing#Deployment_models"
             },
             "children": [
                 {
-                    "name": "Sales Officer",
+                    "name": "Public Cloud",
                     "attributes": {
-                        "Department": "A"
-                    },
-                    "children": [
-                        {
-                            "name": "Salespeople"
-                        }
-                    ]
+                        "description": "Cloud infrastructure available to the general public.",
+                        "link": "https://en.wikipedia.org/wiki/Public_cloud"
+                    }
                 },
                 {
-                    "name": "Sales Officer",
+                    "name": "Private Cloud",
                     "attributes": {
-                        "Department": "B"
-                    },
-                    "children": [
-                        {
-                            "name": "Salespeople"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "Manager",
-            "attributes": {
-                "Department": "Marketing",
-                "isFullTime": true,
-                "weeklyHours": 80
-            },
-            "children": [
-                {
-                    "name": "Sales Officer",
-                    "attributes": {
-                        "Department": "A"
-                    },
-                    "children": [
-                        {
-                            "name": "Salespeople"
-                        }
-                    ]
+                        "description": "Cloud infrastructure operated solely for a single organization.",
+                        "link": "https://en.wikipedia.org/wiki/Private_cloud"
+                    }
                 },
                 {
-                    "name": "Sales Officer",
+                    "name": "Hybrid Cloud",
                     "attributes": {
-                        "Department": "B"
-                    },
-                    "children": [
-                        {
-                            "name": "Salespeople"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "Manager",
-            "attributes": {
-                "Department": "Marketing",
-                "isFullTime": true,
-                "weeklyHours": 80
-            },
-            "children": [
-                {
-                    "name": "Sales Officer",
-                    "attributes": {
-                        "Department": "A"
-                    },
-                    "children": [
-                        {
-                            "name": "Salespeople"
-                        }
-                    ]
+                        "description": "Combines public and private cloud resources for flexibility.",
+                        "link": "https://en.wikipedia.org/wiki/Hybrid_cloud"
+                    }
                 },
                 {
-                    "name": "Sales Officer",
+                    "name": "Multi-Cloud",
                     "attributes": {
-                        "Department": "B"
-                    },
-                    "children": [
-                        {
-                            "name": "Salespeople"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "Manager",
-            "attributes": {
-                "Department": "Marketing",
-                "isFullTime": true,
-                "weeklyHours": 80
-            },
-            "children": [
-                {
-                    "name": "Sales Officer",
-                    "attributes": {
-                        "Department": "A"
-                    },
-                    "children": [
-                        {
-                            "name": "Salespeople"
-                        }
-                    ]
-                },
-                {
-                    "name": "Sales Officer",
-                    "attributes": {
-                        "Department": "B"
-                    },
-                    "children": [
-                        {
-                            "name": "Salespeople"
-                        }
-                    ]
+                        "description": "The use of multiple cloud computing services from different providers.",
+                        "link": "https://en.wikipedia.org/wiki/Multicloud"
+                    }
                 }
             ]
         }

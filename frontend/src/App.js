@@ -4,16 +4,19 @@ import './App.css';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import { useState } from 'react';
-import MindMap from './components/Elk';
+import MindMap from './components/ELK/Elk';
+import tr from './treeData.json';
+import TreeComponent from './components/Tree/TreeComponent';
 
 function App() {
 
   const [searchValue, setSearchValue] = useState(null)
-  const [treeData, setTreeData] = useState(null)
+  const [treeData, setTreeData] = useState(tr)
   const [loading, setLoading] = useState(true)
 
   return (
-    <MindMap/>
+    // <MindMap/>
+    <TreeComponent treeData={treeData}/>
     // <BrowserRouter>
     //   <Layout
     //     setSearchValue={setSearchValue}

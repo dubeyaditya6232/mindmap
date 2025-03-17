@@ -1,12 +1,13 @@
 // import NodeModal from "../components/NodeModal";
 import { Box, Stack } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // import { CustomNodeElementProps, RawNodeDatum, TreeNodeDatum } from "react-d3-tree/lib/types/common";
 // import { v4 } from "uuid";
 
 import Tree from "react-d3-tree"
 import './treeComponent.css'
 import data from '../../treeData.json'
+import CustomNode from "./CustomNode";
 
 
 
@@ -17,6 +18,10 @@ const TreeComponent = ({ treeData }) => {
     const [ox, setOx] = useState(100)
     const [oy, setOy] = useState(50)
     const [prev, setPrev] = useState(null)
+    const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
+    const [translate, setTranslate] = useState({ x: 0, y: 0 });
+    const [zoom, setZoom] = useState(1);
+    const treeContainer = useRef(null);
 
     const handleNodeClick = (datum) => {
 
@@ -119,14 +124,48 @@ const TreeComponent = ({ treeData }) => {
     }, []);
 
     useEffect(() => {
+        if (treeContainer.current) {
+            const { width, height } = treeContainer.current.getBoundingClientRect();
+            setDimensions({ width, height });
 
-    }, [ox, oy])
+            // Center the tree
+            setTranslate({ x: width / 2, y: height / 2 });
+
+            // Auto-adjust zoom based on screen size
+            setZoom(Math.min(width / 1000, height / 800)); // Adjust scaling dynamically
+        }
+    }, []);
+
+
 
 
     return (
         <> <Stack direction="row" spacing="md" sx={{}}>
-            <Box sx={{ width: '100%', height: '90vh' }}>
+            <Box ref={treeContainer} sx={{ width: '100%', height: '100vh' }}>
                 <Tree
+                    data={treeData}
+                    orientation={orientation}
+                    dimensions={dimensions}
+                    renderCustomNodeElement={(rd3tProps) => <CustomNode {...rd3tProps} />}
+                    collapsible={true}
+                    shouldCollapseNeighborNodes={true}
+                    initialDepth={1}
+                    depthFactor={undefined}
+                    zoomable={true}
+                    draggable={true}
+                    zoom={0.5}
+                    nodeSize={{ x: 250, y: 200 }} // Adjust spacing
+                    separation={{ siblings: 0.5, nonSiblings: 0.7 }}
+                    translate={translate}
+                    // translate={{
+                    //     x: window.innerWidth / 2 - ((orientation === 'vertical') ? 0 : ox),
+                    //     y: window.innerHeight / 2 - ((orientation === 'vertical') ? oy : 50),
+                    // }}
+                    centeringTransitionDuration={500}
+                    enableLegacyTransitions={false}
+                    transitionDuration={500}
+                />
+                {/* <Tree
                     data={treeData}
                     orientation={orientation}
                     dimensions={{
@@ -157,7 +196,7 @@ const TreeComponent = ({ treeData }) => {
                     rootNodeClassName="node__root"
                     branchNodeClassName="node__branch"
                     leafNodeClassName="node__leaf"
-                />
+                /> */}
             </Box>
         </Stack>
         </>
