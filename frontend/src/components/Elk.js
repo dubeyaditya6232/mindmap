@@ -64,10 +64,25 @@ const applyELKLayout = async (nodes, edges) => {
     const graph = {
         id: "root",
         layoutOptions: {
-            "elk.algorithm": "layered", // Options: "layered", "force", "radial","stress"
-            "elk.direction": "RIGHT", // Change to "UP", "DOWN", "LEFT", etc.
-            "elk.spacing.nodeNode": "10", // The minimum space between two nodes
-            "elk.spacing.edgeNode": "10", // The minimum space between an edge and a node
+            "elk.algorithm": "radial", // Options: "layered", "force", "radial","stress"
+            // "elk.direction": "DOWN", // Change to "UP", "DOWN", "LEFT", etc.
+            // "elk.spacing.nodeNode": 1, // The minimum space between two nodes
+            // "elk.spacing.edgeNode": 1, // The minimum space between an edge and a node
+            // "elk.spacing.edgeEdge": 1,
+            // "elk.radial.layout": "true",
+            // "elk.stress.desiredEdgeLength": 20,
+            // "elk.radial.centerOnRoot": true, //NW
+            // "elk.radial.compactor": "RADIAL_COMPACTION", //W
+            // "elk.radial.compactionStepSize": 5, //w
+            // "elk.portLabels.placement":"ALWAYS_SAME_SIDE", //NW
+            // "elk.radial.orderId":1,//NW
+            // "elk.radial.rotation.outgoingEdgeAngles":true, //NW
+            // "elk.radial.optimizationCriteria":"EDGE_LENGTH", //W
+            // "elk.radial.sorter":"POLAR_COORDINATE (@AdvancedPropertyValue)", //NW
+            // "elk.radial.rotation.computeAdditionalWedgeSpace": true,//NW
+            // "elk.radial.wedgeCriteria": "LEAF_NUMBER",//NW
+            // "elk.radial.rotate":true,//NW
+            "elk.portConstraints":"FREE" //NW
         },
         children: nodes.map((node) => ({
             id: node.id,
